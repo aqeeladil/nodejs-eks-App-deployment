@@ -1,0 +1,25 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: hello-space
+  name: hello-world-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - image: <your-dockerhub-username>/hello-world-app:v1
+        name: hello-world
+        ports:
+        - containerPort: 3000
+
+
+    
+
